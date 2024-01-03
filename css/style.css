@@ -7,6 +7,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .container{
@@ -15,7 +17,9 @@ body{
     align-items: center;
     flex-direction: column;
 
-    border: 2px rgb(230, 229, 229) solid;
+    border: 3px solid;
+    border-image: linear-gradient(to right, red, green, blue, orange, yellow, violet, red) 1;
+
     padding: 3em;
 }
 
@@ -64,4 +68,5 @@ input[type="button"]:active{
     border: none;
     border-top: rgb(171, 171, 171) solid 2px;
     border-left: rgb(171, 171, 171) solid 2px;
+    background-color: rgb(218, 253, 189);
 }
