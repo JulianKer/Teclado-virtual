@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teclado Virtual | by JulianKer</title>
 </head>
 <body>
     <main class="container">
-        <p id="campo-de-texto"></p>
+        <div class="contenedor-campo-de-texto">
+            <p id="campo-de-texto">este es el campo de texto</p>
+        </div>
 
+        <div class="contenedor-teclado">
         <section class="primer-fila">
             <input type="button" value="Q">
             <input type="button" value="W">
@@ -46,9 +50,10 @@
         </section>
 
         <section class="contenedor-space">
-            <input type="button" value="SPACE">
+            <input type="button" value="SPACE" id="space">
         </section>
 
+        </div>
     </main>
 </body>
 </html>
