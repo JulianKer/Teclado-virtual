@@ -12,7 +12,7 @@ body{
 }
 
 .container{
-    max-width: 55%;
+    width: 55%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -50,7 +50,7 @@ section{
     justify-content: center;
 }
 
-input[type="button"]{
+.tecla{
     font-size: 2em;
     width: 2em;
     margin: 7px;
@@ -59,6 +59,8 @@ input[type="button"]{
     border: none;
     border-right: rgb(171, 171, 171) solid 3px;
     border-bottom: rgb(171, 171, 171) solid 3px;
+
+    border-radius: 20px;
 }
 
 #space{
@@ -82,4 +84,10 @@ input[type="button"]:active{
 }
 #mayuscula{
     min-width: 4em;
+}
+.tecla-mayuscula{
+    border: none;
+    border-top: rgb(171, 171, 171) solid 3px;
+    border-left: rgb(171, 171, 171) solid 3px;
+    background-color: rgb(218, 253, 189);
 }
