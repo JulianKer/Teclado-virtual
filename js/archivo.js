@@ -1,16 +1,23 @@
 let campoDeTexto = document.getElementById("campo-de-texto")
 let teclas = document.querySelectorAll(".tecla");
-const tituloPrincipal = "El texto que escriba aparecerá aquí."
+const tituloPrincipal = "El texto que escriba aparecera aqui..."
 const teclaMayuscula = document.getElementById("mayuscula");
+let led = document.querySelector(".led");
+
+
 
 teclas.forEach(tecla=>(
     tecla.addEventListener("click", ()=>{
         if (campoDeTexto.textContent === tituloPrincipal) {
             campoDeTexto.textContent = " ";
         }
+
         if (tecla.value === "←") {
             let cadenaConLetraBorrada = campoDeTexto.textContent.slice(0,-1)
-            campoDeTexto.textContent = cadenaConLetraBorrada
+            campoDeTexto.textContent = cadenaConLetraBorrada;
+            if (campoDeTexto.textContent === "") {
+                campoDeTexto.textContent = tituloPrincipal;
+            }
         }else{
 
             if (tecla.value === "Mayús.") {
@@ -48,6 +55,7 @@ function convertirAMayusculas(){
             tecla.value = tecla.value.toUpperCase()
         }
     })
+    led.classList.add("led-activado");
 }
 function convertirAMinusculas(){
     teclas.forEach(tecla=>{
@@ -55,5 +63,6 @@ function convertirAMinusculas(){
             tecla.value = tecla.value.toLowerCase()
         }
     })
+    led.classList.remove("led-activado");
 }
 
