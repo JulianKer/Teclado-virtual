@@ -73,8 +73,26 @@ section{
     border-radius: 20px;
 }
 
+.contenedor-space{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.tecla-ABC{
+    width: auto;
+    grid-column: 1;
+    justify-self: start;
+}
 #space{
     width: 300px;
+    grid-column: 2;
+    justify-self: center;
+}
+
+.tecla-delete-all{
+    width: auto;
+    grid-column: 3;
+    justify-self: end;
 }
 
 input[type="button"]:hover{
@@ -124,8 +142,6 @@ input[type="button"]:active{
     background-color: #ffff0c;
     box-shadow: 0px 0px 8px 4px #93da00;
 }
-
-
 
 
 
