@@ -38,7 +38,9 @@
             <input type="button" value="j" class="tecla">
             <input type="button" value="k" class="tecla">
             <input type="button" value="l" class="tecla">
-            <input type="button" value="ñ" class="tecla">
+           <!-- 
+            <input type="button" value="ñ" class="tecla">      no pongo la "ñ" porque no encontré una fuente con estilo de Calculator que tenga la "ñ"
+            -->
         </section>
 
         <section class="tercer-fila">
@@ -52,14 +54,17 @@
         </section>
 
         <section class="contenedor-space">
-            <input type="button" value="ABC" class="tecla tecla-ABC">
+            <input type="button" value="ABC" class="tecla tamaño-abc" id="teclaABC">
             <input type="button" value=" " id="space" class="tecla">
             <input type="button" value="Delete all" class="tecla tecla-delete-all">
         </section>
 
         <section class="cuarta-fila">
             <div class="indicador"> 
-                <p>Mayúsculas</p> <div class="led"></div>
+                <p>Mayúsculas</p> <div class="led" id="led-mayus"></div>
+            </div>
+            <div class="indicador">
+                <p>ABC</p> <div class="led" id="led-abc"></div>
             </div>
         </section>
 

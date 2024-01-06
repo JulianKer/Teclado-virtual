@@ -1,68 +1,162 @@
+const caracteresPrincipales = [];
+const caracteresEspeciales = ["1","2","3","4","5","6","7","8","9","0","!",'#',"$","%","&","/","(",")","=","?","¿","¡",",",".",";","-","_","+"]
 let campoDeTexto = document.getElementById("campo-de-texto")
 let teclas = document.querySelectorAll(".tecla");
 const tituloPrincipal = "El texto que escriba aparecera aqui..."
 const teclaMayuscula = document.getElementById("mayuscula");
-let led = document.querySelector(".led");
+const teclaABC = document.getElementById("teclaABC");
+let ledMayus = document.getElementById("led-mayus");
+let ledAbc = document.getElementById("led-abc");
 
 
+// ----------------------------------
+document.addEventListener("DOMContentLoaded", ()=>{
+    teclas.forEach(tecla=>{
+        caracteresPrincipales.push(tecla.value);
+    })
+})
+// ----------------------------------
 
+// ----------------------------------
 teclas.forEach(tecla=>(
     tecla.addEventListener("click", ()=>{
         if (campoDeTexto.textContent === tituloPrincipal && tecla.value != " " && tecla.value != "Mayús." && tecla.value != "Delete all" && tecla.value != "ABC") {
-            campoDeTexto.textContent = " ";
+            campoDeTexto.textContent = "";
         }
 
-        if (tecla.value === "←") {
-            let cadenaConLetraBorrada = campoDeTexto.textContent.slice(0,-1)
-            campoDeTexto.textContent = cadenaConLetraBorrada;
-            if (campoDeTexto.textContent === "") {
-                campoDeTexto.textContent = tituloPrincipal;
-            } 
-        }else{
+        switch (tecla.value) {
+            case "←":
+                let cadenaConLetraBorrada = campoDeTexto.textContent.slice(0,-1);
+                campoDeTexto.textContent = cadenaConLetraBorrada;
+                break;
 
-            if (tecla.value === "Mayús.") {
-                console.log(estanEnMinusculas())
-                if (estanEnMinusculas()) {
-                    console.log("convirtiendo a mayusculas")
-                    convertirAMayusculas();
+            case "Mayús.":
+                if (teclas[0].value === "1") {
+
                 }else{
-                    console.log("convirtiendo a minusculas")
-                    convertirAMinusculas()
+                    if (estanEnMinusculas()) {
+                        console.log("convirtiendo a mayusculas")
+                        convertirAMayusculas();
+                    }else{
+                        console.log("convirtiendo a minusculas")
+                        convertirAMinusculas()
+                    }
                 }
-            }else{
-                campoDeTexto.textContent += tecla.value
-            }
+            
+                break;
+
+            case "ABC":
+                if (teclas[0].value === "q" || teclas[0].value === "Q") {
+                    cambiarACaracteresEspeciales();
+                }else{
+                    cambiarACaracteresPrincipales();
+                }
+                break;
+
+            case "Delete all":
+                campoDeTexto.textContent = "";
+                break;
+
+            default:
+                campoDeTexto.innerHTML += tecla.value;
+                break;
         }
+        if (campoDeTexto.textContent === "") {
+            campoDeTexto.textContent = tituloPrincipal;
+        } 
     })
 ));
+// ----------------------------------
 
+
+
+// ----------------------------------
 teclaMayuscula.addEventListener("click", ()=>{
-    if (teclaMayuscula.classList.contains("tecla-mayuscula")) {
-        teclaMayuscula.classList.remove("tecla-mayuscula");
-        console.log("saque la clase")
+    if (!(ledAbc.classList.contains("led-activado"))) { // si quiero activar mayusculas, solo lo puedo hacer si la tecla de abc esta desactivada
+        if (teclaMayuscula.classList.contains("tecla-mayuscula")) {
+            teclaMayuscula.classList.remove("tecla-mayuscula");
+        }else{
+            teclaMayuscula.classList.add("tecla-mayuscula")
+        }
     }else{
-        teclaMayuscula.classList.add("tecla-mayuscula")
-        console.log("puse la clase")
+        titilarLedMayuscula();
     }
 })
+// ----------------------------------
+
+// ----------------------------------
+teclaABC.addEventListener("click", ()=>{
+    if (teclaABC.classList.contains("tecla-ABC")){
+        teclaABC.classList.remove("tecla-ABC")
+    }else{
+        if (teclaMayuscula.classList.contains("tecla-mayuscula")) {
+            convertirAMinusculas()
+            teclaMayuscula.classList.remove("tecla-mayuscula");
+            titilarLedMayuscula();
+        }
+        teclaABC.classList.add("tecla-ABC")
+    }
+})
+// ----------------------------------
+
+// ----------------------------------
 function estanEnMinusculas(){
     return teclas[0].value === "q"
 }
+// ----------------------------------
 
+// ----------------------------------
 function convertirAMayusculas(){
     teclas.forEach(tecla=>{
-        if (tecla.value != "Mayús.") {
+        if (tecla.value != "Mayús." && tecla.value != "Delete all" && tecla.value != "ABC") {
             tecla.value = tecla.value.toUpperCase()
         }
     })
-    led.classList.add("led-activado");
+    ledMayus.classList.add("led-activado");
 }
+// ----------------------------------
+
+// ----------------------------------
 function convertirAMinusculas(){
     teclas.forEach(tecla=>{
-        if (tecla.value != "Mayús.") {
+        if (tecla.value != "Mayús." && tecla.value != "Delete all" && tecla.value != "ABC") {
             tecla.value = tecla.value.toLowerCase()
         }
     })
-    led.classList.remove("led-activado");
+    ledMayus.classList.remove("led-activado");
 }
+// ----------------------------------
+
+// ----------------------------------
+function cambiarACaracteresEspeciales(){
+    teclas.forEach((tecla, indice)=>{
+        
+        if (tecla.value != "←" && tecla.value != "Mayús." && tecla.value != " " && tecla.value != "Delete all" && tecla.value != "ABC") {
+            tecla.value = caracteresEspeciales[indice] // cambio
+        }
+    })
+    ledAbc.classList.add("led-activado");
+}
+// ----------------------------------
+
+// ----------------------------------
+function cambiarACaracteresPrincipales(){
+    teclas.forEach((tecla, indice)=>{
+        if (tecla.value != "←" && tecla.value != "Mayús." && tecla.value != " " && tecla.value != "Delete all" && tecla.value != "ABC") {
+            tecla.value = caracteresPrincipales[indice]; //cambio
+        }
+    })
+    ledAbc.classList.remove("led-activado");
+}
+// ----------------------------------
+
+
+// ----------------------------------
+function titilarLedMayuscula(){
+    ledMayus.classList.add("led-error");
+        setTimeout(()=>{
+            ledMayus.classList.remove("led-error");
+        },1500)
+}
+// ----------------------------------
 
