@@ -8,7 +8,7 @@ let led = document.querySelector(".led");
 
 teclas.forEach(tecla=>(
     tecla.addEventListener("click", ()=>{
-        if (campoDeTexto.textContent === tituloPrincipal) {
+        if (campoDeTexto.textContent === tituloPrincipal && tecla.value != " " && tecla.value != "Mayús.") {
             campoDeTexto.textContent = " ";
         }
 
@@ -17,7 +17,7 @@ teclas.forEach(tecla=>(
             campoDeTexto.textContent = cadenaConLetraBorrada;
             if (campoDeTexto.textContent === "") {
                 campoDeTexto.textContent = tituloPrincipal;
-            }
+            } 
         }else{
 
             if (tecla.value === "Mayús.") {
