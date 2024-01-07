@@ -181,6 +181,8 @@ a{
     border: black 2px solid;
     border-radius: 100%;
     background-color: rgb(98, 150, 100);
+
+    transition: all ease .5s;
 }
 
 .led-activado{
