@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 // ----------------------------------
 teclas.forEach(tecla=>(
     tecla.addEventListener("click", ()=>{
-        if (campoDeTexto.textContent === tituloPrincipal && tecla.value != " " && tecla.value != "Mayús." && tecla.value != "Delete all" && tecla.value != "ABC") {
+        if (campoDeTexto.textContent === tituloPrincipal && tecla.value != "Mayús." && tecla.value != "Delete all" && tecla.value != "ABC") {
             campoDeTexto.textContent = "";
         }
 

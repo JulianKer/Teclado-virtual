@@ -4,13 +4,26 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icons/icono J.png">
     <title>Teclado Virtual | by JulianKer</title>
 </head>
 <body>
-    <main class="container">
+    <div class="contenedor-general-del-texto">
         <div class="contenedor-campo-de-texto">
             <p id="campo-de-texto">El texto que escriba aparecera aqui...</p>
         </div>
+    </div>
+
+    <div class="container">
+        <section class="fila-de-leds">
+            <a href="https://github.com/JulianKer" target="_blank"><img src="icons/icono J.png" alt="Icon J" title="by JulianKer" class="icono-j"></a>
+            <div class="indicador"> 
+                <p>Mayúsculas</p> <div class="led" id="led-mayus"></div>
+            </div>
+            <div class="indicador">
+                <p>ABC</p> <div class="led" id="led-abc"></div>
+            </div>
+        </section>
 
         <div class="contenedor-teclado">
         <section class="primer-fila">
@@ -59,17 +72,8 @@
             <input type="button" value="Delete all" class="tecla tecla-delete-all">
         </section>
 
-        <section class="cuarta-fila">
-            <div class="indicador"> 
-                <p>Mayúsculas</p> <div class="led" id="led-mayus"></div>
-            </div>
-            <div class="indicador">
-                <p>ABC</p> <div class="led" id="led-abc"></div>
-            </div>
-        </section>
-
         </div>
-    </main>
+    </div>
 
     <script src="js/archivo.js"></script>
 </body>
