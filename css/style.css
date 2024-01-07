@@ -59,7 +59,7 @@ body{
     padding: 2px;
     border-radius: 1.5em;
 
-    overflow-y: auto; /* Agrega scroll vertical si es necesario */
+    overflow-y: auto; 
     overflow-x: hidden;
 }
 
@@ -186,11 +186,13 @@ a{
 .led-activado{
     background-color: #ffff0c;
     box-shadow: 0px 0px 8px 4px #93da00;
+    transition: all ease-in-out .3s;
 }
 
 .led-error{
     background-color: #ff0000;
     box-shadow: 0px 0px 8px 4px #f74744;
+    transition: all ease-in-out .5s;
 }
 
 
